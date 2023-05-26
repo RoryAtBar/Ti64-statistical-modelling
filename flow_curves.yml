@@ -1,7 +1,8 @@
 Alloy: 'Ti-6Al-4V'
 
 Papers:
-  - Paper: 'Flow softening during hot working of Ti-6Al-4V with a lamellar colony microstructure'
+  Miller_1999:
+    Title: 'Flow softening during hot working of Ti-6Al-4V with a lamellar colony microstructure'
     Authors: 'R.M. Miller , T.R. Bieler , S.L. Semiatin'
     year_of_publication: 1999
     Curves:
@@ -24,7 +25,8 @@ Papers:
         sample_length_mm: 'check'
         Curve_location: 'MillerBielerSemiatin/900C_0-1s-1.csv'
 
-  - Paper: 'Dynamic transformation during the high temperature deformation of two-phase titanium alloys'
+  Guo_2019:
+    Title: 'Dynamic transformation during the high temperature deformation of two-phase titanium alloys'
     Authors: 'Baoqi Guo, S.L. Semiatin, John J. Jonas'
     year_of_publication: 2019
     Curves:
@@ -119,7 +121,8 @@ Papers:
         sample_length_mm: 'check'
         Curve_location: 'GuoSemiatinJonas/955C_0-001s-1lam.csv'
 
-  - Paper: 'Unified modeling of flow softening and globularization for hot working of two-phase titanium alloy with a lamellar colony microstructure'
+  Gao_2014:
+    Title: 'Unified modeling of flow softening and globularization for hot working of two-phase titanium alloy with a lamellar colony microstructure'
     Authors: 'Pengfei Gao, He Yang, Xiaoguang Fan, Shuai Zhu'
     year_of_publication: 2014
     Curves:
@@ -178,7 +181,8 @@ Papers:
         sample_length_mm: 'check'
         Curve_location: 'GaoYangFanZhu/1228K_0-001s-1lam.csv'
 
-  - Paper: 'Flow behavior and globularization kinetics during hot working of Ti6Al4V with a colony alpha microstructure'
+  Semiatin_1999:
+    Title: 'Flow behavior and globularization kinetics during hot working of Ti6Al4V with a colony alpha microstructure'
     Authors: 'S.L Semiatin, V Seetharaman, I Weiss'
     year_of_publication: 1999
     Curves:
@@ -264,7 +268,8 @@ Papers:
         sample_length_mm: 15
         Curve_location: 'semiatinseetharamanweiss1999/900C_10s-1lam.csv'
 
-  - Paper: 'Effect of hot working on flow behavior of Ti6Al4V alloy in single phase and two phase regions'
+  Momeni_2010:
+    Title: 'Effect of hot working on flow behavior of Ti6Al4V alloy in single phase and two phase regions'
     Authors: 'A. Momeni, S.M. Abbasi'
     year_of_publication: 2010
     Curves:
@@ -413,7 +418,8 @@ Papers:
         sample_length_mm: 15
         Curve_location: 'MomeniAbassi/1050C_0-001s-1beta.csv'
 
-  - Paper: 'Construction of processing maps based on expanded data by BP-ANN and identification of optimal deforming parameters for Ti-6Al-4V alloy'
+  Quan_2016:
+    Title: 'Construction of processing maps based on expanded data by BP-ANN and identification of optimal deforming parameters for Ti-6Al-4V alloy'
     Authors: 'Guo-zheng Quan, Hai-rong Wen, Jia-Pan, Zhen-yu Zou '
     year_of_publication: 2016
     Curves:
@@ -607,7 +613,8 @@ Papers:
         sample_length_mm: 12
         Curve_location: 'QuanWenPanZou/1323K_10s-1unk.csv'
 
-  - Paper: 'The origins of flow softening during high-temperature deformation of a Ti6Al4V alloy with a lamellar microstructure'
+  Park_2014:
+    Title: 'The origins of flow softening during high-temperature deformation of a Ti6Al4V alloy with a lamellar microstructure'
     Authors: 'Chan Hee Park, Jeoung Han Kim, Yong-Taek Hyun, Jong-Taek Yeom, N.S. Reddy'
     year_of_publication: 2014
     Curves:
@@ -675,7 +682,8 @@ Papers:
         sample_length_mm: 'check'
         Curve_location: 'ParkKimHyunYeomReddy/950C_0-1s-1lam_0-9um.csv'
 
-  - Paper: 'Flow stress constitutive relationship between lamellar and equiaxed microstructure during hot deformation of Ti6Al4V'
+  Jha_2019:
+    Title: 'Flow stress constitutive relationship between lamellar and equiaxed microstructure during hot deformation of Ti6Al4V'
     Authors: 'Jyoti S. Jha, Suraj P. Toppo, Rajkumar Singh, Asim Tewari, Sushil K. Mishra'
     year_of_publication: 2019
     Curves:
@@ -842,7 +850,8 @@ Papers:
         sample_length_mm: 15
         Curve_location: 'JhaToppoSinghTewariMishra/950C_10s-1lam.csv'
 
-  - Paper: 'Constitutive equations for elevated temperature flow stress of Ti6Al4V alloy considering the effect of strain'
+  Cai_2010:
+    Title: 'Constitutive equations for elevated temperature flow stress of Ti6Al4V alloy considering the effect of strain'
     Authors: 'Jun Cai, Fuguo Li, Taiying Liu, Bo Chen, Min He'
     year_of_publication: 2010
     Curves:
@@ -1117,7 +1126,8 @@ Papers:
         sample_length_mm: 12
         Curve_location: 'CaiLiLiuChenHe/1050C_1s-1lam.csv'
 
-  - Paper: 'Finite Element Modeling of Hot Compression Testing of Titanium Alloys'
+  Jedrasiak_2022:
+    Title: 'Finite Element Modeling of Hot Compression Testing of Titanium Alloys'
     Authors: 'Patryk Jedrasiak, Hugh Shercliff, Sumeet Mishra, Christopher S. Daniel, and Joao Quinta da Fonseca'
     year_of_publication: 2022
     Curves:
