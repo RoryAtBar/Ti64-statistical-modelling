@@ -1,0 +1,10 @@
+#DataThief /Users/user/Thesis/figures/literature/beta_approach_curves/semiatin_2002_fig6.png Thursday 6-Jul-2023 3:54:31 pm
+731.2457, 21.0994
+758.4531, 20.5143
+797.3963, 23.2995
+832.5926, 28.6576
+862.6328, 35.7962
+888.4514, 43.1315
+912.3959, 51.4562
+942.4496, 64.3374
+982.371, 84.1526
