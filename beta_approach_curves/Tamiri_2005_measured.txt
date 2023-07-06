@@ -1,7 +1,7 @@
-#DataThief /Users/user/Thesis/figures/literature/beta_approach_curves/Tamirisakandala - 2005 - beta_volume_fraction.png Thursday 6-Jul-2023 4:04:10 pm
-799.4636, 11.8805
-849.9402, 25.0796
-900.4217, 39.6987
-950.9645, 72.5734
-974.5364, 83.5335
-1000.8171, 100.1741
+T,volfracbeta
+799.4636,11.8805
+849.9402,25.0796
+900.4217,39.6987
+950.9645,72.5734
+974.5364,83.5335
+1000.8171,100.1741
