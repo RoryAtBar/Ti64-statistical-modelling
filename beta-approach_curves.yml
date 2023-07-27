@@ -1,0 +1,65 @@
+Alloy: 'Ti-6Al-4V'
+
+Papers:
+  Janda_2022:
+    Title: 'In-situ high-temperature EBSD characterization during a solution heat treatment of hot-rolled Ti-6Al-4V'
+    Authors: 'A. Janda, S. Ebenbauer, A. Prestl, I. Siller, H. Clemens, P. Spoerk-Erdely'
+    year_of_publication: 2022
+    Curves:
+      - Temperature_C: 'any'
+        Strain_rate_s-1: 'any'
+        alpha_lamellar_thickness: 'check'
+        avg_grain_size: 'unknown'
+        In_situ_heating: 'check'
+        microstructure_type: 'lamellar'
+        sample_diameter_mm: 'check'
+        sample_length_mm: 'check'
+        Curve_location: 'Beta-approach_curves/Janda_2022/Janda_2022_fig9_measured.csv'
+        
+  Semiatin_2002:
+    Title: 'Self-consistent modeling of the flow behavior of wrought alpha/beta titanium alloys under isothermal and nonisothermal hot-working conditions'
+    Authors: 'S.L. Semiatin, F. Montheillet, G. Shen, J.J. Jonas'
+    year_of_publication: 2002
+    Curves:
+      - Temperature_C: 'any'
+        Strain_rate_s-1: 'any'
+        alpha_lamellar_thickness: 'check'
+        avg_grain_size: 'unknown'
+        In_situ_heating: 'check'
+        microstructure_type: 'lamellar'
+        sample_diameter_mm: 'check'
+        sample_length_mm: 'check'
+        Curve_location: 'Beta-approach_curves/Semiatin_2002/semiatin_2002_fig6_castro&seraphin.csv'
+      - Temperature_C: 'any'
+        Strain_rate_s-1: 'any'
+        alpha_lamellar_thickness: 'check'
+        avg_grain_size: 'unknown'
+        In_situ_heating: 'check'
+        microstructure_type: 'lamellar'
+        sample_diameter_mm: 'check'
+        sample_length_mm: 'check'
+        Curve_location: 'Beta-approach_curves/Semiatin_2002/semiatin_2002_fig6_microbe.csv'
+      - Temperature_C: 'any'
+        Strain_rate_s-1: 'any'
+        alpha_lamellar_thickness: 'check'
+        avg_grain_size: 'unknown'
+        In_situ_heating: 'check'
+        microstructure_type: 'lamellar'
+        sample_diameter_mm: 'check'
+        sample_length_mm: 'check'
+        Curve_location: 'Beta-approach_curves/Semiatin_2002/semiatin_2002_fig6_quant_metall.csv'
+        
+  Tamiri_2005:
+    Title: 'Effect of boron on the beta transus of Ti--6Al--4V alloy'
+    Authors: 'S. Tamirisakandala, R.B. Bhat, D.B. Miracle, S. Boddapati, R. Bordia, R. Vanover, V.K. Vasudevan'
+    year_of_publication: 2005
+    Curves:
+      - Temperature_C: 'any'
+        Strain_rate_s-1: 'any'
+        alpha_lamellar_thickness: 'check'
+        avg_grain_size: 'unknown'
+        In_situ_heating: 'check'
+        microstructure_type: 'lamellar'
+        sample_diameter_mm: 'check'
+        sample_length_mm: 'check'
+        Curve_location: 'Beta-approach_curves/Tamiri_2005/Tamiri_2005_measured.csv'

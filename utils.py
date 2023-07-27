@@ -35,9 +35,9 @@ def curve_filter(lit_data,
             diameter_bool = curve['sample_diameter_mm'] == sample_diameter or sample_diameter == 'any'
             length_bool = curve['sample_length_mm'] == sample_diameter or sample_diameter =='any'
             if temp_bool & strain_bool & micro_bool & diameter_bool & length_bool:
-                flow_curve = np.loadtxt('Flow_curves/'+curve['Curve_location'], delimiter=",")
-                flow_curve = sort_curve(flow_curve)
-                curve_list.append(flow_curve)
+                curve = pd.read_csv(curve['Curve_location'], delimiter=",")
+#                 curve = sort_curve(curve)
+                curve_list.append(curve)
                 Author_list.append(lit_data['Papers'][paper]['Authors'])
                 Paper_list.append(lit_data['Papers'][paper]['Title'])
                 no_curves +=1
@@ -73,9 +73,23 @@ def curve_filter_pd(Temperature_C='any',
 
 def flow_curve_plotter(curve_list, fig_no, Authors, Temperature_C='any', Strain_rate='any', microstructure='any', heater='any'):
     for n, curve in enumerate(curve_list):
-        plt.plot(curve[:,0], curve[:,1], label=Authors[n])
+        plt.plot(curve.iloc[:,0], curve.iloc[:,1], label=Authors[n])
     Title = 'Flow curves of Ti64 with ' + microstructure +' at ' + str(Temperature_C) + 'C and ' + str(Strain_rate)+ 's-1 strain rate'
     plt.title(Title)
     plt.xlabel('strain')
     plt.ylabel('Stress/MPa')
+    plt.legend(bbox_to_anchor=[1, 1])
+    
+def beta_approach_curve_plotter(curve_list, fig_no, Authors, microstructure='any', heater='any'):
+    for n, curve in enumerate(curve_list):
+        plt.plot(curve.iloc[:,0], curve.iloc[:,1], label=Authors[n])
+    plt.title('Beta approach curves of Ti64')
+
+    plt.xlim([None,1000])
+    plt.xlabel(f"Temperature [C]")
+    plt.ylim([0,100])
+    plt.ylabel(f"% Vol frac β")
+    plt.yticks([0,10,20,30,40,50,60,70,80,90,100],
+           ["0%","10%","20%","30%","40%","50%","60%","70%","80%","90%","100%"])
+    plt.grid()
     plt.legend(bbox_to_anchor=[1, 1])
