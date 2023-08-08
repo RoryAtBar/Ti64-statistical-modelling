@@ -80,9 +80,13 @@ def flow_curve_plotter(curve_list, fig_no, Authors, Temperature_C='any', Strain_
     plt.ylabel('Stress/MPa')
     plt.legend(bbox_to_anchor=[1, 1])
     
-def beta_approach_curve_plotter(curve_list, fig_no, Authors, microstructure='any', heater='any'):
+def beta_approach_curve_plotter(curve_list, Authors, microstructure='any', heater='any'):
+    marker_list = ['s', '^', 'h', '*', 'X', '+', 'o', '.', 'P']
+    
     for n, curve in enumerate(curve_list):
-        plt.plot(curve.iloc[:,0], curve.iloc[:,1], label=Authors[n])
+        plt.plot(curve.iloc[:,0], curve.iloc[:,1], label=Authors[n],
+                 marker=marker_list[n], linestyle='none', color='k'
+                )
     plt.title('Beta approach curves of Ti64')
 
     plt.xlim([None,1000])
@@ -92,4 +96,4 @@ def beta_approach_curve_plotter(curve_list, fig_no, Authors, microstructure='any
     plt.yticks([0,10,20,30,40,50,60,70,80,90,100],
            ["0%","10%","20%","30%","40%","50%","60%","70%","80%","90%","100%"])
     plt.grid()
-    plt.legend(bbox_to_anchor=[1, 1])
+    plt.legend(bbox_to_anchor=[1.1, 1])
