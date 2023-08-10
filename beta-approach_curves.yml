@@ -13,6 +13,16 @@ Papers:
 #         In_situ_heating: 'check'
 #         Curve_location: 'Beta-approach_curves/Authorname_year/dataset_name.csv' # !relative path!
 ### GUIDE ###
+
+  Sesha_2000: # paper_key
+    Title: "Hot working of commercial Ti-6Al-4V with an equiaxed α-β microstructure: materials modeling considerations"
+    Authors: ['T. Seshacharyulu', 'S.C. Medeiros', 'W.G. Frazier', 'Y.V.R.K. Prasad']
+    year_of_publication: 2000
+    Curves:
+      - heating_rate: 'check'
+        Strain_rate_s-1: 'check'
+        In_situ_heating: 'check'
+        Curve_location: 'Beta-approach_curves/Sesha_2000/sesh_2000_fig7_sastry1983.csv'
         
   Semiatin_2002:
     Title: "Self-consistent modeling of the flow behavior of wrought alpha/beta titanium alloys under isothermal and nonisothermal hot-working conditions"
