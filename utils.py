@@ -35,14 +35,45 @@ def curve_filter(lit_data,
             diameter_bool = curve['sample_diameter_mm'] == sample_diameter or sample_diameter == 'any'
             length_bool = curve['sample_length_mm'] == sample_diameter or sample_diameter =='any'
             if temp_bool & strain_bool & micro_bool & diameter_bool & length_bool:
-                flow_curve = np.loadtxt('Flow_curves/'+curve['Curve_location'], delimiter=",")
-                flow_curve = sort_curve(flow_curve)
-                curve_list.append(flow_curve)
-                Author_list.append(lit_data['Papers'][paper]['Authors'])
+                curve = pd.read_csv(curve['Curve_location'], delimiter=",")
+#                 curve = sort_curve(curve)
+                curve_list.append(curve)
+                Author_list.append(lit_data['Papers'][paper]['Authors'][0])
                 Paper_list.append(lit_data['Papers'][paper]['Title'])
                 no_curves +=1
     return curve_list, no_curves, Paper_list, Author_list
-    
+
+
+def beta_approach_curve_filter(lit_data, authors_list=[], year_of_publication=[],
+                              heating_rate='any', Strain_rate='any', heater='any'
+                             ):
+    filtered_data = {}
+    filtered_data['Papers'] = {}
+    for paper_key in lit_data['Papers'].keys():
+        
+        authors_bool = lit_data['Papers'][paper_key]['Authors'][0] in authors_list or authors_list==[]
+        year_of_publication_bool = lit_data['Papers'][paper_key]['year_of_publication'] in year_of_publication or year_of_publication==[]
+        
+        if authors_bool & year_of_publication_bool:
+            filtered_data['Papers'][paper_key] = {}
+            filtered_data['Papers'][paper_key]['Curves'] = []
+        
+            for curve_num, curve in enumerate(lit_data['Papers'][paper_key]['Curves']):
+                # must sort curve by T for fitting to work:
+                sorted_curve = lit_data['Papers'][paper_key]['Curves'][curve_num]['data'].sort_values(by=['T'])
+            
+                heating_rate_bool = curve['heating_rate'] == heating_rate or heating_rate=='any' or heating_rate=='check'
+                Strain_rate_bool = curve['Strain_rate_s-1'] == Strain_rate or Strain_rate =='any' or Strain_rate=='check'
+                heater_bool = curve['In_situ_heating'] == heater or heater == 'any' or heater=='check'
+            
+                if heating_rate_bool & Strain_rate_bool & heater_bool:
+                    filtered_data['Papers'][paper_key]['Curves'].append( sorted_curve )
+                    filtered_data['Papers'][paper_key]['Title'] = lit_data['Papers'][paper_key]['Title']
+                    filtered_data['Papers'][paper_key]['Authors'] = lit_data['Papers'][paper_key]['Authors']
+                    filtered_data['Papers'][paper_key]['year_of_publication'] = lit_data['Papers'][paper_key]['year_of_publication']
+                
+    return filtered_data
+
 
 def curve_filter_pd(Temperature_C='any', 
                  Strain_rate='any', 
@@ -73,9 +104,28 @@ def curve_filter_pd(Temperature_C='any',
 
 def flow_curve_plotter(curve_list, fig_no, Authors, Temperature_C='any', Strain_rate='any', microstructure='any', heater='any'):
     for n, curve in enumerate(curve_list):
-        plt.plot(curve[:,0], curve[:,1], label=Authors[n])
+        plt.plot(curve.iloc[:,0], curve.iloc[:,1], label=Authors[n])
     Title = 'Flow curves of Ti64 with ' + microstructure +' at ' + str(Temperature_C) + 'C and ' + str(Strain_rate)+ 's-1 strain rate'
     plt.title(Title)
     plt.xlabel('strain')
     plt.ylabel('Stress/MPa')
     plt.legend(bbox_to_anchor=[1, 1])
+
+
+def beta_approach_curve_plotter(filtered_data):
+    marker_list = ['s', '^', 'h', 'X', '*', '+', 'o', '.', 'P']
+    
+    for p, paper in enumerate(filtered_data['Papers']):
+        for c, curve in enumerate(filtered_data['Papers'][paper]['Curves']):
+            plt.plot(curve.iloc[:,0], curve.iloc[:,1], label=f"{paper}",
+                     marker=marker_list[p], linestyle='none', color='k'
+                    )
+    plt.title('Beta approach curves of Ti64')
+    plt.xlim([None,1000])
+    plt.xlabel(f"Temperature [C]")
+    plt.ylim([0,100])
+    plt.ylabel(f"% Vol frac β")
+    plt.yticks([0,10,20,30,40,50,60,70,80,90,100],
+           ["0%","10%","20%","30%","40%","50%","60%","70%","80%","90%","100%"])
+    plt.grid()
+    plt.legend(bbox_to_anchor=[1.1, 1])
