@@ -1,6 +1,13 @@
 *.pkl
+*.DS_Store
 
-Beta-approach_curves/Janda_2022/.ipynb_checkpoints/
-JedrasiakShercliffMishraDanielFonseca/.ipynb_checkpoints/
 __pycache__/
 .ipynb_checkpoints/
+
+JedrasiakShercliffMishraDanielFonseca/.ipynb_checkpoints/
+
+Beta-approach_curves/.DS_Store
+Beta-approach_curves/._.DS_Store
+Beta-approach_curves/Janda_2022/.ipynb_checkpoints/
+
+Beta-approach_curves/Reddy_2006/._Reddy_2006_fig5a.csv

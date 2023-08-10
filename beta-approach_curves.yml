@@ -13,16 +13,6 @@ Papers:
 #         In_situ_heating: 'check'
 #         Curve_location: 'Beta-approach_curves/Authorname_year/dataset_name.csv' # !relative path!
 ### GUIDE ###
-
-  Janda_2022:
-    Title: "In-situ high-temperature EBSD characterization during a solution heat treatment of hot-rolled Ti-6Al-4V"
-    Authors: ['A. Janda', 'S. Ebenbauer', 'A. Prestl', 'I. Siller', 'H. Clemens', 'P. Spoerk-Erdely']
-    year_of_publication: 2022
-    Curves:
-      - heating_rate: 'check'
-        Strain_rate_s-1: 'check'
-        In_situ_heating: 'check'
-        Curve_location: 'Beta-approach_curves/Janda_2022/Janda_2022_fig9_measured.csv'
         
   Semiatin_2002:
     Title: "Self-consistent modeling of the flow behavior of wrought alpha/beta titanium alloys under isothermal and nonisothermal hot-working conditions"
@@ -51,6 +41,26 @@ Papers:
         Strain_rate_s-1: 'check'
         In_situ_heating: 'check'
         Curve_location: 'Beta-approach_curves/Tamiri_2005/Tamiri_2005_measured.csv'
+        
+  Reddy_2006:
+    Title: "Determination of the beta-approach curve and beta-transus temperature for titanium alloys using sensitivity analysis of a trained neural network"
+    Authors: ['N.S. Reddy', 'C.S. Lee', 'J.H. Kim', 'S.L. Semiatin']
+    year_of_publication: 2006
+    Curves:
+      - heating_rate: 'check'
+        Strain_rate_s-1: 'check'
+        In_situ_heating: 'check'
+        Curve_location: 'Beta-approach_curves/Reddy_2006/Reddy_2006_fig5a.csv'
+        
+  Motyka_2012:
+    Title: "Hot Plasticity of Alpha Beta Alloys"
+    Authors: ['M. Motyka', 'K. Kubiak', 'J. Sieniawski', 'W. Ziaja']
+    year_of_publication: 2012
+    Curves:
+      - heating_rate: 'check'
+        Strain_rate_s-1: 'check'
+        In_situ_heating: 'check'
+        Curve_location: 'Beta-approach_curves/Motyka_2012/Motyka_2012_fig12.csv'
 
   Villa_2019:
     Title: "Microstructural Modeling of thea+bPhasein Ti-6Al-4V: A Diffusion-Based Approach"
@@ -69,13 +79,13 @@ Papers:
         Strain_rate_s-1: 'check'
         In_situ_heating: 'check'
         Curve_location: 'Beta-approach_curves/Villa_2019/villa_2019_fig4_500Cpersec.csv'
-
-  Reddy_2006:
-    Title: "Determination of the beta-approach curve and beta-transus temperature for titanium alloys using sensitivity analysis of a trained neural network"
-    Authors: ['N.S. Reddy', 'C.S. Lee', 'J.H. Kim', 'S.L. Semiatin']
-    year_of_publication: 2006
+        
+  Janda_2022:
+    Title: "In-situ high-temperature EBSD characterization during a solution heat treatment of hot-rolled Ti-6Al-4V"
+    Authors: ['A. Janda', 'S. Ebenbauer', 'A. Prestl', 'I. Siller', 'H. Clemens', 'P. Spoerk-Erdely']
+    year_of_publication: 2022
     Curves:
       - heating_rate: 'check'
         Strain_rate_s-1: 'check'
         In_situ_heating: 'check'
-        Curve_location: 'Beta-approach_curves/Reddy_2006/Reddy_2006_fig5a.csv'
+        Curve_location: 'Beta-approach_curves/Janda_2022/Janda_2022_fig9_measured.csv'
