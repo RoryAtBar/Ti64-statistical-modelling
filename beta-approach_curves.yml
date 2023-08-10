@@ -1,6 +1,19 @@
 Alloy: 'Ti-6Al-4V'
 
 Papers:
+
+### GUIDE ###
+#   Authorname_year: # paper_key
+#     Title: "Paper_Title"
+#     Authors: ['J. Smith', 'D. Jones', 'J.B. Goode']
+#     year_of_publication: 2000
+#     Curves:
+#       - heating_rate: 'check'
+#         Strain_rate_s-1: 'check'
+#         In_situ_heating: 'check'
+#         Curve_location: 'Beta-approach_curves/Authorname_year/dataset_name.csv' # !relative path!
+### GUIDE ###
+
   Janda_2022:
     Title: "In-situ high-temperature EBSD characterization during a solution heat treatment of hot-rolled Ti-6Al-4V"
     Authors: ['A. Janda', 'S. Ebenbauer', 'A. Prestl', 'I. Siller', 'H. Clemens', 'P. Spoerk-Erdely']
