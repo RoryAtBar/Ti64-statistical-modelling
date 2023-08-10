@@ -44,33 +44,33 @@ def curve_filter(lit_data,
     return curve_list, no_curves, Paper_list, Author_list
 
 
-def beta_approach_curve_filter(lit_data,
-                              authors_list=[],
-                              year_of_publication=[],
-                              heating_rate='any', 
-                              Strain_rate='any',  
-                              heater='any'
+def beta_approach_curve_filter(lit_data, authors_list=[], year_of_publication=[],
+                              heating_rate='any', Strain_rate='any', heater='any'
                              ):
     filtered_data = {}
     filtered_data['Papers'] = {}
-    for paper in lit_data['Papers'].keys():
-        filtered_data['Papers'][paper] = {}
+    for paper_key in lit_data['Papers'].keys():
         
-        authors_bool = lit_data['Papers'][paper]['Authors'][0] in authors_list or authors_list==[]
-        year_of_publication_bool = lit_data['Papers'][paper]['year_of_publication'] in year_of_publication or year_of_publication==[]
+        authors_bool = lit_data['Papers'][paper_key]['Authors'][0] in authors_list or authors_list==[]
+        year_of_publication_bool = lit_data['Papers'][paper_key]['year_of_publication'] in year_of_publication or year_of_publication==[]
         
-        filtered_data['Papers'][paper]['Curves'] = []
-        for curve_num, curve in enumerate(lit_data['Papers'][paper]['Curves']):
+        if authors_bool & year_of_publication_bool:
+            filtered_data['Papers'][paper_key] = {}
+            filtered_data['Papers'][paper_key]['Curves'] = []
+        
+            for curve_num, curve in enumerate(lit_data['Papers'][paper_key]['Curves']):
+                # must sort curve by T for fitting to work:
+                sorted_curve = lit_data['Papers'][paper_key]['Curves'][curve_num]['data'].sort_values(by=['T'])
             
-            heating_rate_bool = curve['heating_rate'] == heating_rate or heating_rate=='any' or heating_rate=='check'
-            Strain_rate_bool = curve['Strain_rate_s-1'] == Strain_rate or Strain_rate =='any' or Strain_rate=='check'
-            heater_bool = curve['In_situ_heating'] == heater or heater == 'any' or heater=='check'
+                heating_rate_bool = curve['heating_rate'] == heating_rate or heating_rate=='any' or heating_rate=='check'
+                Strain_rate_bool = curve['Strain_rate_s-1'] == Strain_rate or Strain_rate =='any' or Strain_rate=='check'
+                heater_bool = curve['In_situ_heating'] == heater or heater == 'any' or heater=='check'
             
-            if authors_bool & year_of_publication_bool & heating_rate_bool & Strain_rate_bool & heater_bool:
-                filtered_data['Papers'][paper]['Curves'].append( lit_data['Papers'][paper]['Curves'][curve_num]['data'] )
-                filtered_data['Papers'][paper]['Title'] = lit_data['Papers'][paper]['Title']
-                filtered_data['Papers'][paper]['Authors'] = lit_data['Papers'][paper]['Authors']
-                filtered_data['Papers'][paper]['year_of_publication'] = lit_data['Papers'][paper]['year_of_publication']
+                if heating_rate_bool & Strain_rate_bool & heater_bool:
+                    filtered_data['Papers'][paper_key]['Curves'].append( sorted_curve )
+                    filtered_data['Papers'][paper_key]['Title'] = lit_data['Papers'][paper_key]['Title']
+                    filtered_data['Papers'][paper_key]['Authors'] = lit_data['Papers'][paper_key]['Authors']
+                    filtered_data['Papers'][paper_key]['year_of_publication'] = lit_data['Papers'][paper_key]['year_of_publication']
                 
     return filtered_data
 
