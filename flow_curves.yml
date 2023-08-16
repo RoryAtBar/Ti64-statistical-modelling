@@ -3,7 +3,7 @@ Alloy: 'Ti-6Al-4V'
 Papers:
   Miller_1999:
     Title: 'Flow softening during hot working of Ti-6Al-4V with a lamellar colony microstructure'
-    Authors: 'R.M. Miller , T.R. Bieler , S.L. Semiatin'
+    Authors: ['R.M. Miller' , 'T.R. Bieler' , 'S.L. Semiatin']
     year_of_publication: 1999
     Curves:
       - Temperature_C: 815
@@ -27,7 +27,7 @@ Papers:
 
   Guo_2019:
     Title: 'Dynamic transformation during the high temperature deformation of two-phase titanium alloys'
-    Authors: 'Baoqi Guo, S.L. Semiatin, John J. Jonas'
+    Authors: ['Baoqi Guo', 'S.L. Semiatin', 'John J. Jonas']
     year_of_publication: 2019
     Curves:
       - Temperature_C: 900
@@ -123,7 +123,7 @@ Papers:
 
   Gao_2014:
     Title: 'Unified modeling of flow softening and globularization for hot working of two-phase titanium alloy with a lamellar colony microstructure'
-    Authors: 'Pengfei Gao, He Yang, Xiaoguang Fan, Shuai Zhu'
+    Authors: ['Pengfei Gao', 'He Yang', 'Xiaoguang Fan', 'Shuai Zhu']
     year_of_publication: 2014
     Curves:
       - Temperature_C: 815
@@ -183,7 +183,7 @@ Papers:
 
   Semiatin_1999:
     Title: 'Flow behavior and globularization kinetics during hot working of Ti6Al4V with a colony alpha microstructure'
-    Authors: 'S.L Semiatin, V Seetharaman, I Weiss'
+    Authors: ['S.L Semiatin', 'V Seetharaman', 'I Weiss']
     year_of_publication: 1999
     Curves:
       - Temperature_C: 815
@@ -270,7 +270,7 @@ Papers:
 
   Momeni_2010:
     Title: 'Effect of hot working on flow behavior of Ti6Al4V alloy in single phase and two phase regions'
-    Authors: 'A. Momeni, S.M. Abbasi'
+    Authors: ['A. Momeni', 'S.M. Abbasi']
     year_of_publication: 2010
     Curves:
       - Temperature_C: 900
@@ -420,7 +420,7 @@ Papers:
 
   Quan_2016:
     Title: 'Construction of processing maps based on expanded data by BP-ANN and identification of optimal deforming parameters for Ti-6Al-4V alloy'
-    Authors: 'Guo-zheng Quan, Hai-rong Wen, Jia-Pan, Zhen-yu Zou '
+    Authors: ['Guo-zheng Quan', 'Hai-rong Wen', 'Jia-Pan', 'Zhen-yu Zou']
     year_of_publication: 2016
     Curves:
       - Temperature_C: 750
@@ -615,7 +615,7 @@ Papers:
 
   Park_2014:
     Title: 'The origins of flow softening during high-temperature deformation of a Ti6Al4V alloy with a lamellar microstructure'
-    Authors: 'Chan Hee Park, Jeoung Han Kim, Yong-Taek Hyun, Jong-Taek Yeom, N.S. Reddy'
+    Authors: ['Chan Hee Park', 'Jeoung Han Kim', 'Yong-Taek Hyun', 'Jong-Taek Yeom', 'N.S. Reddy']
     year_of_publication: 2014
     Curves:
       - Temperature_C: 815
@@ -684,7 +684,7 @@ Papers:
 
   Jha_2019:
     Title: 'Flow stress constitutive relationship between lamellar and equiaxed microstructure during hot deformation of Ti6Al4V'
-    Authors: 'Jyoti S. Jha, Suraj P. Toppo, Rajkumar Singh, Asim Tewari, Sushil K. Mishra'
+    Authors: ['Jyoti S. Jha', 'Suraj P. Toppo', 'Rajkumar Singh', 'Asim Tewari', 'Sushil K. Mishra']
     year_of_publication: 2019
     Curves:
       - Temperature_C: 750
@@ -852,7 +852,7 @@ Papers:
 
   Cai_2010:
     Title: 'Constitutive equations for elevated temperature flow stress of Ti6Al4V alloy considering the effect of strain'
-    Authors: 'Jun Cai, Fuguo Li, Taiying Liu, Bo Chen, Min He'
+    Authors: ['Jun Cai', 'Fuguo Li', 'Taiying Liu', 'Bo Chen', 'Min He']
     year_of_publication: 2010
     Curves:
       - Temperature_C: 800
@@ -1128,7 +1128,7 @@ Papers:
 
   Jedrasiak_2022:
     Title: 'Finite Element Modeling of Hot Compression Testing of Titanium Alloys'
-    Authors: 'Patryk Jedrasiak, Hugh Shercliff, Sumeet Mishra, Christopher S. Daniel, and Joao Quinta da Fonseca'
+    Authors: ['Patryk Jedrasiak', 'Hugh Shercliff', 'Sumeet Mishra', 'Christopher S. Daniel', 'Joao Quinta da Fonseca']
     year_of_publication: 2022
     Curves:
       - Temperature_C: 700
