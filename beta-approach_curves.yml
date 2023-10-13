@@ -6,7 +6,7 @@ Papers:
 #   Authorname_year: # paper_key
 #     Title: "Paper_Title"
 #     Authors: ['J. Smith', 'D. Jones', 'J.B. Goode']
-#     year_of_publication: 2000
+#     year_of_publication: 1990
 #     Curves:
 #       - heating_rate: 'check'
 #         Strain_rate_s-1: 'check'
@@ -14,7 +14,7 @@ Papers:
 #         Curve_location: 'Beta-approach_curves/Authorname_year/dataset_name.csv' # !relative path!
 ### GUIDE ###
 
-  Sesha_2000: # paper_key
+  Sesha_2000:
     Title: "Hot working of commercial Ti-6Al-4V with an equiaxed α-β microstructure: materials modeling considerations"
     Authors: ['T. Seshacharyulu', 'S.C. Medeiros', 'W.G. Frazier', 'Y.V.R.K. Prasad']
     year_of_publication: 2000
@@ -89,7 +89,17 @@ Papers:
         Strain_rate_s-1: 'check'
         In_situ_heating: 'check'
         Curve_location: 'Beta-approach_curves/Villa_2019/villa_2019_fig4_500Cpersec.csv'
-        
+
+  He_2020:
+    Title: "Fabrication, Structure and Mechanical and Ultrasonic Properties of Medical Ti6Al4V Alloys Part I: Microstructure and Mechanical Properties of Ti6Al4V Alloys Suitable for Ultrasonic Scalpel."
+    Authors: ['Z. He', 'H. He', 'J. Lou', 'Y. Li', 'D. Li', 'Y. Chen', 'S. Liu']
+    year_of_publication: 2020
+    Curves:
+      - heating_rate: 'check'
+        Strain_rate_s-1: 'check'
+        In_situ_heating: 'check'
+        Curve_location: 'Beta-approach_curves/Janda_2022/Janda_2022_fig9_measured.csv'
+
   Janda_2022:
     Title: "In-situ high-temperature EBSD characterization during a solution heat treatment of hot-rolled Ti-6Al-4V"
     Authors: ['A. Janda', 'S. Ebenbauer', 'A. Prestl', 'I. Siller', 'H. Clemens', 'P. Spoerk-Erdely']
