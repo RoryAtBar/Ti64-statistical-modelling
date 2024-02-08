@@ -18,6 +18,7 @@ def load_yml(alloy, yml_file='flow_curves.yml'):
                 expt_flow_curve_data = pd.read_csv(path_to_data,
                                              delimiter=",", header=None, names=["Srain[-]", "Stress(MPa)"])
                 database['Experiments'][expt]['Curves'][curve_no]['data'] = expt_flow_curve_data
+                database['Experiments'][expt]['Curves'][curve_no]['dataset_key'] = expt # include dataset key in curve
     except:
         database['Experiments'] = None
 
@@ -29,6 +30,7 @@ def load_yml(alloy, yml_file='flow_curves.yml'):
             lit_flow_curve_data = pd.read_csv(path_to_data,
                                      delimiter=",", header=None, names=["Srain[-]", "Stress(MPa)"])
             database['Papers'][paper]['Curves'][curve_no]['data'] = lit_flow_curve_data
+            database['Papers'][paper]['Curves'][curve_no]['dataset_key'] = paper # include dataset key in curve
 #     except:
 #         database['Papers'] = None
         
@@ -55,6 +57,7 @@ def include_dataset(curve, chosen_parameters):
     chosen_strainrate =     chosen_parameters['Strain_rate_s-1']
     chosen_temp =           chosen_parameters['Temperature_C']
     chosen_heater =         chosen_parameters['In_situ_heating']
+    exclusions =            chosen_parameters['exclusions']
     
     # EACH BOOL TRUE IF MATCHING USER CHOICE OR 'ANY' CHOSEN
     diameter_bool       = curve['sample_diameter_mm']==chosen_diameter        or chosen_diameter=='any'
@@ -65,9 +68,16 @@ def include_dataset(curve, chosen_parameters):
     temp_bool           = curve['Temperature_C']==chosen_temp                 or chosen_temp=='any'
     heattype_bool       = curve['In_situ_heating']==chosen_heater             or chosen_heater=='any'
     
+    # EXCLUDE IF KEY, TITLE, OR AUTHORS ARE IN EXCLUSIONS LIST:
+    exclude = curve['dataset_key'] in exclusions
+    
     # IF ALL TRUE INCLUDE DATASET
     if diameter_bool & length_bool &  microstructure_bool & loadtype_bool & strainrate_bool & temp_bool & heattype_bool:
-        include_bool = True
+        if exclude:
+            print(f"{curve['dataset_key']} IN EXCLUSIONS LIST.")
+            include_bool = False
+        else:
+            include_bool = True
     else:
         include_bool = False
     return include_bool
@@ -83,8 +93,9 @@ def curve_filter(database, chosen_parameters):
     for datasource in ['Papers']: # ['Experiments', 'Papers'] # DEBUG: JUST USE PAPERS FOR NOW...
         for dataset_key in database[datasource]: # idividual expt/paper
             curve_list = [] # initialise empty curve list on looking at new dataset...
-            for curve in database[datasource][dataset_key]['Curves']:
+            for curve_num, curve in enumerate(database[datasource][dataset_key]['Curves']):
                 if include_dataset(curve, chosen_parameters): # If include func returns true:
+                    print(f"Including {dataset_key} load:{database[datasource][dataset_key]['Curves'][curve_num]['load']} T:{database[datasource][dataset_key]['Curves'][curve_num]['Temperature_C']} Strain rate:{database[datasource][dataset_key]['Curves'][curve_num]['Strain_rate_s-1']}") # DEBUG
                     curve_list.append(curve)
                     # only add dataset_key to dict if curve contains chosen params
                     filtered_database[datasource][dataset_key] = {
@@ -94,6 +105,7 @@ def curve_filter(database, chosen_parameters):
                                                                   'Curves': curve_list
                                                                  }
                 else:
+#                     print(f"Excluding {dataset_key} curve {curve_no}") # DEBUG
                     pass # if not included, move on...
         
     return filtered_database
