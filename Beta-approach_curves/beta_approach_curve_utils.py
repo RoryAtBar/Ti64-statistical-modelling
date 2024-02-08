@@ -44,7 +44,7 @@ def lit_data_filter(database):
     for paper_key in database['Papers'].keys():
         authors_bool = database['Papers'][paper_key]['Authors'][0] in authors_list or authors_list==[]
         year_of_publication_bool = database['Papers'][paper_key]['year_of_publication'] in year_of_publication or year_of_publication==[]
-        # exclusion bool true if any in list
+        # exclusion bool true if any in list # NOT YET IMPLEMENTED!
         exclusion_bool = database['Experiments'][expt_key]['Authors'][0] in exclsuions or database['Experiments'][expt_key]['year_of_publication'] in exclusions
         
         if authors_bool & year_of_publication_bool:

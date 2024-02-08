@@ -3,6 +3,7 @@ from yaml.loader import FullLoader
 from yaml.loader import SafeLoader
 import numpy as np
 import matplotlib.pyplot as plt
+import os
 import pandas as pd
 
 
@@ -13,21 +14,23 @@ def load_yml(alloy, yml_file='flow_curves.yml'):
     try:
         for expt in database['Experiments'].keys():
             for curve_no, curve_metadata in enumerate(database['Experiments'][expt]['Curves']):
-                expt_flow_curve_data = pd.read_csv(database['Experiments'][expt]['Curves'][curve_no]['Curve_location'],
+                path_to_data = os.path.abspath(database['Experiments'][expt]['Curves'][curve_no]['Curve_location'])
+                expt_flow_curve_data = pd.read_csv(path_to_data,
                                              delimiter=",", header=None, names=["Srain[-]", "Stress(MPa)"])
                 database['Experiments'][expt]['Curves'][curve_no]['data'] = expt_flow_curve_data
     except:
         database['Experiments'] = None
 
     # LOAD LIT DATA
-    try:
-        for paper in database['Papers'].keys():
-            for curve_no, curve_metadata in enumerate(database['Papers'][paper]['Curves']):
-                lit_flow_curve_data = pd.read_csv(database['Papers'][paper]['Curves'][curve_no]['Curve_location'],
-                                         delimiter=",", header=None, names=["Srain[-]", "Stress(MPa)"])
-                database['Papers'][paper]['Curves'][curve_no]['data'] = lit_flow_curve_data
-    except:
-        database['Papers'] = None
+#     try:
+    for paper in database['Papers'].keys():
+        for curve_no, curve_metadata in enumerate(database['Papers'][paper]['Curves']):
+            path_to_data = os.path.abspath(database['Papers'][paper]['Curves'][curve_no]['Curve_location'])
+            lit_flow_curve_data = pd.read_csv(path_to_data,
+                                     delimiter=",", header=None, names=["Srain[-]", "Stress(MPa)"])
+            database['Papers'][paper]['Curves'][curve_no]['data'] = lit_flow_curve_data
+#     except:
+#         database['Papers'] = None
         
     print(f"\nExperiments: \n{database['Experiments']}")
     print(f"\nPapers: \n{database['Papers'].keys()}")
