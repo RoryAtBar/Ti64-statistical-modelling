@@ -95,7 +95,7 @@ def curve_filter(database, chosen_parameters):
             curve_list = [] # initialise empty curve list on looking at new dataset...
             for curve_num, curve in enumerate(database[datasource][dataset_key]['Curves']):
                 if include_dataset(curve, chosen_parameters): # If include func returns true:
-                    print(f"Including {dataset_key} load:{database[datasource][dataset_key]['Curves'][curve_num]['load']} T:{database[datasource][dataset_key]['Curves'][curve_num]['Temperature_C']} Strain rate:{database[datasource][dataset_key]['Curves'][curve_num]['Strain_rate_s-1']}") # DEBUG
+                    print(f"Including {dataset_key} load:{database[datasource][dataset_key]['Curves'][curve_num]['load']} T:{database[datasource][dataset_key]['Curves'][curve_num]['Temperature_C']} Microstructure: {database[datasource][dataset_key]['Curves'][curve_num]['microstructure_type']} Strain rate:{database[datasource][dataset_key]['Curves'][curve_num]['Strain_rate_s-1']}") # DEBUG
                     curve_list.append(curve)
                     # only add dataset_key to dict if curve contains chosen params
                     filtered_database[datasource][dataset_key] = {
@@ -112,17 +112,18 @@ def curve_filter(database, chosen_parameters):
 
 
 def flow_curve_plotter(database):
+    plt.figure(dpi=400)
     
     for datasource in ['Papers']: # ['Experiments', 'Papers'] # DEBUG: JUST USE PAPERS FOR NOW...
         for dataset_key in database[datasource]: # idividual expt/paper
             try:
                 for curve in database[datasource][dataset_key]['Curves']:
-                    plt.plot(curve['data'].iloc[:,0], curve['data'].iloc[:,1], label=dataset_key)
+                    plt.plot(curve['data'].iloc[:,0]-curve['data'].iloc[0,0], curve['data'].iloc[:,1], label=dataset_key)
             except:
                 pass
                 
     plt.title(f'Flow curves')
     plt.xlabel('strain')
     plt.ylabel('Stress/MPa')
-    plt.legend(bbox_to_anchor=[1, 1])
+    plt.legend()#bbox_to_anchor=[1, 1])
 
